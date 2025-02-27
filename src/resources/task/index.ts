@@ -102,7 +102,11 @@ export class Task extends APIResource {
 
     formData.append('index_id', body.indexId);
     if (body.url) formData.append('video_url', body.url);
-    if (body.transcriptionUrl) formData.append('transcription_url', body.transcriptionUrl);
+    if (body.transcriptionUrl) {
+      formData.append('transcription_url', body.transcriptionUrl);
+      formData.append('provide_transcription', 'true');
+    }
+    
     if (body.language) formData.append('language', body.language);
     if (body.enableVideoStream) formData.append('enable_video_stream', String(body.enableVideoStream));
 
